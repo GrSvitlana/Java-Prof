@@ -44,16 +44,16 @@ public class Main {
                 "timeIteratorPlus", timeIteratorPlus,
                 "timeIteratorMinus", timeIteratorMinus);
 
-        List<Long> time = new ArrayList<>(Arrays.asList(timeForEach,timeclassicForI, timeclassicForPlus, timeclassicForMinus,
+        List<Long> time = new ArrayList<>(Arrays.asList(timeForEach, timeclassicForI, timeclassicForPlus, timeclassicForMinus,
                 timeIterator, timeIteratorI, timeIteratorPlus, timeIteratorMinus));
         Collections.sort(time);
         System.out.println(time);
     }
 
-    private static long foreachMethod (List<Integer> list) {
+    private static long foreachMethod(List<Integer> list) {
         long startTime = System.nanoTime();
         for (Integer elements : list) {
-            System.out.print(elements  + " ");
+            System.out.print(elements + " ");
         }
         long stopTime = System.nanoTime();
         long foreachMethodTime = stopTime - startTime;
@@ -61,7 +61,7 @@ public class Main {
         return foreachMethodTime;
     }
 
-    private static long classicForMethodI (List<Integer> list) {
+    private static long classicForMethodI(List<Integer> list) {
         long startTime = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {
             System.out.print(i + list.size());
@@ -72,7 +72,7 @@ public class Main {
         return classicForMethodITime;
     }
 
-    private static long classicForMethodPlus (List<Integer> list) {
+    private static long classicForMethodPlus(List<Integer> list) {
         long startTime = System.nanoTime();
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -84,7 +84,7 @@ public class Main {
         return classicForMethodPlusTime;
     }
 
-    private static long classicForMethodMinus (List<Integer> list) {
+    private static long classicForMethodMinus(List<Integer> list) {
         long startTime = System.nanoTime();
         int size = list.size();
         for (int i = size; i > 0; i--) {
@@ -96,7 +96,7 @@ public class Main {
         return classicForMethodMinusTime;
     }
 
-    private static long iteratorMethod (List<Integer> list) {
+    private static long iteratorMethod(List<Integer> list) {
         long startTime = System.nanoTime();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -108,7 +108,7 @@ public class Main {
         return iteratorMethodTime;
     }
 
-    private static long iteratorMethodI (List<Integer> list) {
+    private static long iteratorMethodI(List<Integer> list) {
         long startTime = System.nanoTime();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -120,7 +120,7 @@ public class Main {
         return iteratorMethodITime;
     }
 
-    private static long iteratorMethodPlus (List<Integer> list) {
+    private static long iteratorMethodPlus(List<Integer> list) {
         long startTime = System.nanoTime();
         int size = list.size();
         Iterator<Integer> iterator = list.iterator();
@@ -133,7 +133,7 @@ public class Main {
         return iteratorMethodPlusTime;
     }
 
-    private static long iteratorMethodMinus (List<Integer> list) {
+    private static long iteratorMethodMinus(List<Integer> list) {
         long startTime = System.nanoTime();
         int size = list.size();
         ListIterator<Integer> iterator = list.listIterator(size);
