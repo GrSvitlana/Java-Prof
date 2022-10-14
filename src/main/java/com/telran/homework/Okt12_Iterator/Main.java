@@ -20,7 +20,7 @@ public class Main {
         int temp;
 
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000000; i++) {
             temp = random.nextInt(100);
             list.add(i, temp);
         }
@@ -53,22 +53,22 @@ public class Main {
     private static long foreachMethod(List<Integer> list) {
         long startTime = System.nanoTime();
         for (Integer elements : list) {
-            System.out.print(list.get(elements) + " ");
+            System.out.print(elements + " ");
         }
         long stopTime = System.nanoTime();
         long foreachMethodTime = stopTime - startTime;
-        System.out.println("foreachMethod time is " + (foreachMethodTime));
+        System.out.println();
         return foreachMethodTime;
     }
 
     private static long classicForMethodI(List<Integer> list) {
         long startTime = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i) + " " + list.size());
+            System.out.printf("%d %d ", list.get(i), list.size());
         }
         long stopTime = System.nanoTime();
         long classicForMethodITime = stopTime - startTime;
-        System.out.println("classicForMethodI time is " + (classicForMethodITime));
+        System.out.println();
         return classicForMethodITime;
     }
 
@@ -76,11 +76,11 @@ public class Main {
         long startTime = System.nanoTime();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            System.out.print(list.get(i) + " " + size);
+            System.out.printf("%d %d ", list.get(i), size);
         }
         long stopTime = System.nanoTime();
         long classicForMethodPlusTime = stopTime - startTime;
-        System.out.println("classicForMethodI time is " + (classicForMethodPlusTime));
+        System.out.println();
         return classicForMethodPlusTime;
     }
 
@@ -88,11 +88,11 @@ public class Main {
         long startTime = System.nanoTime();
         int size = list.size();
         for (int i = size - 1; i >= 0; i--) {
-            System.out.print(list.get(i) + " " + size);
+            System.out.printf("%d %d ",list.get(i), size);
         }
         long stopTime = System.nanoTime();
         long classicForMethodMinusTime = stopTime - startTime;
-        System.out.println("classicForMethodMinus time is " + (classicForMethodMinusTime));
+        System.out.println();
         return classicForMethodMinusTime;
     }
 
@@ -100,11 +100,11 @@ public class Main {
         long startTime = System.nanoTime();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
+            System.out.printf("%d ", iterator.next());
         }
         long stopTime = System.nanoTime();
         long iteratorMethodTime = stopTime - startTime;
-        System.out.println("iteratorMethod time is " + (iteratorMethodTime));
+        System.out.println();
         return iteratorMethodTime;
     }
 
@@ -112,11 +112,11 @@ public class Main {
         long startTime = System.nanoTime();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " " + list.size());
+            System.out.printf("%d %d ", iterator.next(), list.size());
         }
         long stopTime = System.nanoTime();
         long iteratorMethodITime = stopTime - startTime;
-        System.out.println("iteratorMethodI time is " + (iteratorMethodITime));
+        System.out.println();
         return iteratorMethodITime;
     }
 
@@ -125,11 +125,11 @@ public class Main {
         int size = list.size();
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " " + size);
+            System.out.printf("%d %d ", iterator.next(), size);
         }
         long stopTime = System.nanoTime();
         long iteratorMethodPlusTime = stopTime - startTime;
-        System.out.println("iteratorMethodPlus time is " + (iteratorMethodPlusTime));
+        System.out.println();
         return iteratorMethodPlusTime;
     }
 
@@ -138,11 +138,11 @@ public class Main {
         int size = list.size();
         ListIterator<Integer> iterator = list.listIterator(size);
         while (iterator.hasPrevious()) {
-            System.out.print(iterator.previous() + " " + size);
+            System.out.printf("%d %d ", iterator.previous(), size);
         }
         long stopTime = System.nanoTime();
         long iteratorMethodMinusTime = stopTime - startTime;
-        System.out.println("iteratorMethodMinus time is " + (iteratorMethodMinusTime));
+        System.out.println();
         return iteratorMethodMinusTime;
     }
 }
