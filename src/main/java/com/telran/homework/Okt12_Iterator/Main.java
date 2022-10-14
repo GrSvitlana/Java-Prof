@@ -20,7 +20,7 @@ public class Main {
         int temp;
 
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 100; i++) {
             temp = random.nextInt(100);
             list.add(i, temp);
         }
@@ -34,7 +34,7 @@ public class Main {
         long timeIteratorPlus = iteratorMethodPlus(list);
         long timeIteratorMinus = iteratorMethodMinus(list);
 
-        System.out.printf("%s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n",
+        System.out.printf("\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n %s = %d\n",
                 "timeForEach", timeForEach,
                 "timeclassicForI", timeclassicForI,
                 "timeclassicForPlus", timeclassicForPlus,
@@ -53,7 +53,7 @@ public class Main {
     private static long foreachMethod(List<Integer> list) {
         long startTime = System.nanoTime();
         for (Integer elements : list) {
-            System.out.print(elements + " ");
+            System.out.print(list.get(elements) + " ");
         }
         long stopTime = System.nanoTime();
         long foreachMethodTime = stopTime - startTime;
@@ -64,7 +64,7 @@ public class Main {
     private static long classicForMethodI(List<Integer> list) {
         long startTime = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {
-            System.out.print(i + list.size());
+            System.out.print(list.get(i) + " " + list.size());
         }
         long stopTime = System.nanoTime();
         long classicForMethodITime = stopTime - startTime;
@@ -76,7 +76,7 @@ public class Main {
         long startTime = System.nanoTime();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            System.out.print(i + size);
+            System.out.print(list.get(i) + " " + size);
         }
         long stopTime = System.nanoTime();
         long classicForMethodPlusTime = stopTime - startTime;
@@ -87,8 +87,8 @@ public class Main {
     private static long classicForMethodMinus(List<Integer> list) {
         long startTime = System.nanoTime();
         int size = list.size();
-        for (int i = size; i > 0; i--) {
-            System.out.print(i + size);
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.print(list.get(i) + " " + size);
         }
         long stopTime = System.nanoTime();
         long classicForMethodMinusTime = stopTime - startTime;
