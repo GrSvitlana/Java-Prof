@@ -1,4 +1,4 @@
-package com.telran.homework.Okt12_Iterator;
+package com.telran.homework.iterator;
 /*
 1. создать лист, наполнить его 10М> елементами
 2. внутри тела кладем i- тый элемент в переменную temp
