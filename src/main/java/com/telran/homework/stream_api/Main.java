@@ -17,19 +17,22 @@ import static java.util.Collections.reverseOrder;
  * String color
  * boolean isHungry
  * Create a list of Cat class instances with the help of streamers:
- * output a list of hungry cats over 2 years old
+ * display a list of hungry cats over 2 years old
  * display a list of black cats with names beginning with T
  * display a list of names of cats 1 year old.
  */
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Create Supplier, that generates random values of Integer type:");
         Supplier<Integer> randomSupplier = new Random()::nextInt;
         System.out.println(randomSupplier.get());
 
+        System.out.println("\nCreate BiFunction, that takes the first argument of int to the power of the second argument of int:");
         BiFunction<Integer, Integer, Double> biFunction = Math::pow;
         System.out.println(biFunction.apply(10, 6));
 
+        System.out.println("\nSort a list of strings with Streams (alphabetically, in reverse order):");
         List<String> list = Arrays.asList(("Lorem ipsum dolor sit amet, " +
                 "consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
                 "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. " +
@@ -48,6 +51,7 @@ public class Main {
                 .toList()
                 .forEach(System.out::print);
 
+        System.out.print("\n\nFrom an int list, use streams to create a list of their string representations:");
         List<Integer> listInteger = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         List<String> listString = listInteger
                 .stream()
@@ -59,28 +63,32 @@ public class Main {
                 new Cat("Xaver", 0, "white", false),
                 new Cat("Demetrius", 1, "black", false),
                 new Cat("Ivar", 2, "brown", true),
-                new Cat("Taras", 3, "black white", false),
+                new Cat("Taras", 3, "black", false),
                 new Cat("Alex", 4, "grey", true),
-                new Cat("Verona", 5, "black", true)
+                new Cat("Verona", 5, "black", true),
+                new Cat("Happy", 1, "blue", false)
         );
 
+        System.out.println("\nDisplay a list of hungry cats over 2 years old:");
         cats
                 .stream()
                 .filter(Cat::isHungry)
-                .filter(c -> c.getAge() > 2)
+                .filter(cat -> cat.getAge() > 2)
                 .toList()
                 .forEach(System.out::println);
         System.out.print("\n" + "-".repeat(20) + "\n");
 
+        System.out.println("Display a list of black cats with names beginning with T:");
         cats
                 .stream()
-                .filter(c -> c.getColour().contains("black") && c.getName().startsWith("T"))
+                .filter(c -> c.getColour().equals("black") && c.getName().startsWith("T"))
                 .forEach(System.out::println);
         System.out.print("\n" + "-".repeat(20) + "\n");
 
+        System.out.println("Display a list of names of cats 1 year old:");
         cats
                 .stream()
                 .filter(c -> c.getAge() == 1)
-                .forEach(c -> System.out.print(c.getName()));
+                .forEach(c -> System.out.println(c.getName()));
     }
 }
